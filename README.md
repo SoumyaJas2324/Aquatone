@@ -9,9 +9,10 @@
 ** AQUATONE is a set of tools for performing reconnaissance on domain names. It can discover subdomains on a given domain by using open sources as well as the more common subdomain dictionary brute force approach. After subdomain discovery, AQUATONE can then scan the hosts for common web ports and HTTP headers, HTML bodies and screenshots can be gathered and consolidated into a report for easy analysis of the attack surface.
 
 ***Installation:
-     **Dependencies
+ **Dependencies
 
-          || AQUATONE depends on Node.js and NPM package manager for its web page screenshotting capabilities. Follow this guide for Installation instructions.
+          || AQUATONE depends on Node.js and NPM package manager for its web page screenshotting capabilities. 
+              Follow this guide for Installation instructions.
 
 || You will also need a newer version of Ruby installed. If you plan to use AQUATONE in Kali Linux, you are already set up with this. If not, it is recommended to install Ruby with RVM.
 
@@ -19,7 +20,7 @@
 
 >> $ gem install aquatone
 
-**** IMPORTANT: AQUATONE's screenshotting capabilities depend on being run on a system with a graphical desktop environment. It is strongly recommended to install and run AQUATONE in a Kali linux virtual machine. I will not provide support or bug fixing for other systems than Kali Linux.
+****IMPORTANT: AQUATONE's screenshotting capabilities depend on being run on a system with a graphical desktop environment. It is strongly recommended to install and run AQUATONE in a Kali linux virtual machine. I will not provide support or bug fixing for other systems than Kali Linux.
 Usage
 Discovery
 
@@ -31,7 +32,7 @@ Discovery
 
 >> $ aquatone-discover --domain example.com --fallback-nameservers 87.98.175.85,5.9.49.12
 
-**** Tuning
+****Tuning
 
 ### aquatone-discover will use 5 threads as default for concurrently performing DNS lookups. This provides reasonable performance but can be tuned to be more or less aggressive with the --threads option:
 
@@ -75,7 +76,7 @@ See >> aquatone-discover --help for more options.
 This file should be present if >> aquatone-discover --domain example.com 
 has been run previously.
 
-##Ports
+## Ports
 
 By default, aquatone-scan will scan the following TCP ports: 80, 443, 8000, 8080 and 8443. These are very common ports for web services and will provide a reasonable coverage. Should you want to specifiy your own list of ports, you can use the --ports option:
 
@@ -92,7 +93,7 @@ Example:
 
 >> $ aquatone-scan --domain example.com --ports large
 
-###Tuning
+### Tuning
 
 Like aquatone-discover, you can make the scanning more or less aggressive with the --threads option which accepts a number of threads for concurrent port scans. The default number of threads is 5.
 
