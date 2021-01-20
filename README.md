@@ -8,7 +8,7 @@
 
 ** AQUATONE is a set of tools for performing reconnaissance on domain names. It can discover subdomains on a given domain by using open sources as well as the more common subdomain dictionary brute force approach. After subdomain discovery, AQUATONE can then scan the hosts for common web ports and HTTP headers, HTML bodies and screenshots can be gathered and consolidated into a report for easy analysis of the attack surface.
 
-***Installation:
+## Installation:
  **Dependencies
 
           || AQUATONE depends on Node.js and NPM package manager for its web page screenshotting capabilities. 
@@ -32,7 +32,7 @@ Discovery
 
 >> $ aquatone-discover --domain example.com --fallback-nameservers 87.98.175.85,5.9.49.12
 
-****Tuning
+### Tuning
 
 ### aquatone-discover will use 5 threads as default for concurrently performing DNS lookups. This provides reasonable performance but can be tuned to be more or less aggressive with the --threads option:
 
@@ -65,7 +65,7 @@ Discovery
 
 See >> aquatone-discover --help for more options.
 
-***Scanning
+### Scanning
 
 **The scanning stage is where AQUATONE will enumerate the discovered hosts for open TCP ports that are commonly used for web services:
 
@@ -76,7 +76,7 @@ See >> aquatone-discover --help for more options.
 This file should be present if >> aquatone-discover --domain example.com 
 has been run previously.
 
-## Ports
+### Ports
 
 By default, aquatone-scan will scan the following TCP ports: 80, 443, 8000, 8080 and 8443. These are very common ports for web services and will provide a reasonable coverage. Should you want to specifiy your own list of ports, you can use the --ports option:
 
@@ -128,14 +128,14 @@ https://cdn.example.com/
 See 
 >> aquatone-scan --help     (for more options)
 
-***Gathering
+### Gathering
 
 The final stage is the gathering part where the results of the discovery and scanning stages are used to query the discovered web services in order to retrieve and save HTTP response headers and HTML bodies, as well as taking screenshots of how the web pages look like in a web browser to make analysis easier. The screenshotting is done with the Nightmare.js Node.js library. This library will be installed automatically if it's not present in the system.
 
 >> $ aquatone-gather --domain example.com
 
 ****aquatone-gather will look for hosts.json and open_ports.txt in the given domain's AQUATONE assessment directory and request and screenshot every IP address for each domain name for maximum coverage.
-Tuning
+### Tuning
 
 Like aquatone-discover and aquatone-scan, you can make the gathering more or less aggressive with the --threads option which accepts a number of threads for concurrent requests. The default number of threads is 5.
 
@@ -151,7 +151,7 @@ Results
     screenshots/: Contains PNG images of how each web page looks like in a browser
     report/ Contains report files in HTML displaying the gathered information for easy analysis
 
-****Subdomain Takeover
+### Subdomain Takeover
 
 ****Subdomain takeover is a very prevalent and potentially critical security issue which commonly occurs when an organization assigns a subdomain to a third-party service provider and then later discontinues use, but forgets to remove the DNS configuration. This leaves the subdomain vulnerable to complete takover by attackers by signing up to the same service provider and claiming the dangling subdomain.
 
